@@ -8,7 +8,11 @@ class Ping(commands.Cog):
 
     @nextcord.slash_command(description="Test command!")
     async def ping(self, interaction: nextcord.Interaction):
-        await interaction.response.send_message("Pong!")
+        embed = nextcord.Embed(
+            title="🏓 Pong!",
+            color=nextcord.Color.red(),
+            description=f"Ping: {round(self.bot.latency * 1000)}ms",
+        )
 
 
 def setup(bot):
